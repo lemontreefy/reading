@@ -153,38 +153,34 @@
     <article id="post-pkuseg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/12/pkuseg/">使用pkuseg和wordcloud进行分词生成词云</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/12/pkuseg/" class="archive-article-date">
+  	<time datetime="2019-09-12T06:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="使用pkuseg和wordcloud进行分词生成词云"><a href="#使用pkuseg和wordcloud进行分词生成词云" class="headerlink" title="使用pkuseg和wordcloud进行分词生成词云"></a>使用pkuseg和wordcloud进行分词生成词云</h2><p>一、pkuseg中文分词工具的使用</p>
+        <p>一、pkuseg中文分词工具的使用</p>
 <p>1、安装pkuseg模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pkuseg</span><br></pre></td></tr></table></figure>
 
 <p>2、使用默认配置进行分词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pkuseg</span><br><span class="line"></span><br><span class="line">seg = pkuseg.pkuseg()           <span class="comment"># 以默认配置加载模型</span></span><br><span class="line">text = seg.cut(<span class="string">'我爱北京天安门'</span>)  <span class="comment"># 进行分词</span></span><br><span class="line">print(text)</span><br></pre></td></tr></table></figure>
 
-<pre><code>[&apos;我&apos;, &apos;爱&apos;, &apos;北京&apos;, &apos;天安门&apos;]</code></pre><p>3、细领域分词</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pkuseg</span><br><span class="line"></span><br><span class="line">seg = pkuseg.pkuseg(model_name=<span class="string">'medicine'</span>)  <span class="comment"># 程序会自动下载所对应的细领域模型</span></span><br><span class="line">text = seg.cut(<span class="string">'我爱北京天安门'</span>)              <span class="comment"># 进行分词</span></span><br><span class="line">print(text)</span><br></pre></td></tr></table></figure>
-
-<pre><code>Downloading: &quot;https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/medicine.zip&quot; to C:\Users\lemontree/.pkuseg\medicine.zip
-100.0%
-
-
-[&apos;我&apos;, &apos;爱&apos;, &apos;北京&apos;, &apos;天安门&apos;]</code></pre><p>4、长句分词</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seg = pkuseg.pkuseg()           <span class="comment"># 以默认配置加载模型</span></span><br><span class="line">text = seg.cut(<span class="string">'地球自转刹车用了四十二年，比联合政府的计划长了三年。妈妈给我讲过我们全家看最后一个日落的情景，太阳落得很慢，仿佛在地平线上停住了，用了三天三夜才落下去，当然，以后没有“天”也没有“夜”了，东半球在相当长的一段时间里(有十几年吧)将处于永远的黄昏中，因为太阳在地平线下并没落深，还在半边天上映出它的光芒。就在那次漫长的日落中，我出生了'</span>)  <span class="comment"># 进行分词</span></span><br><span class="line">print(text)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[&apos;地球&apos;, &apos;自&apos;, &apos;转刹车&apos;, &apos;用&apos;, &apos;了&apos;, &apos;四十二年&apos;, &apos;，&apos;, &apos;比&apos;, &apos;联合政府&apos;, &apos;的&apos;, &apos;计划&apos;, &apos;长&apos;, &apos;了&apos;, &apos;三年&apos;, &apos;。&apos;, &apos;妈妈&apos;, &apos;给&apos;, &apos;我&apos;, &apos;讲&apos;, &apos;过&apos;, &apos;我们&apos;, &apos;全家&apos;, &apos;看&apos;, &apos;最后&apos;, &apos;一个&apos;, &apos;日落&apos;, &apos;的&apos;, &apos;情景&apos;, &apos;，&apos;, &apos;太阳&apos;, &apos;落&apos;, &apos;得&apos;, &apos;很&apos;, &apos;慢&apos;, &apos;，&apos;, &apos;仿佛&apos;, &apos;在&apos;, &apos;地平线&apos;, &apos;上&apos;, &apos;停住&apos;, &apos;了&apos;, &apos;，&apos;, &apos;用&apos;, &apos;了&apos;, &apos;三&apos;, &apos;天&apos;, &apos;三&apos;, &apos;夜&apos;, &apos;才&apos;, &apos;落&apos;, &apos;下去&apos;, &apos;，&apos;, &apos;当然&apos;, &apos;，&apos;, &apos;以后&apos;, &apos;没有&apos;, &apos;“&apos;, &apos;天&apos;, &apos;”&apos;, &apos;也&apos;, &apos;没有&apos;, &apos;“&apos;, &apos;夜&apos;, &apos;”&apos;, &apos;了&apos;, &apos;，&apos;, &apos;东半球&apos;, &apos;在&apos;, &apos;相当&apos;, &apos;长&apos;, &apos;的&apos;, &apos;一&apos;, &apos;段&apos;, &apos;时间&apos;, &apos;里&apos;, &apos;(&apos;, &apos;有&apos;, &apos;十几&apos;, &apos;年&apos;, &apos;吧&apos;, &apos;)&apos;, &apos;将&apos;, &apos;处于&apos;, &apos;永远&apos;, &apos;的&apos;, &apos;黄昏&apos;, &apos;中&apos;, &apos;，&apos;, &apos;因为&apos;, &apos;太阳&apos;, &apos;在&apos;, &apos;地平线&apos;, &apos;下&apos;, &apos;并&apos;, &apos;没&apos;, &apos;落深&apos;, &apos;，&apos;, &apos;还&apos;, &apos;在&apos;, &apos;半边天&apos;, &apos;上映&apos;, &apos;出&apos;, &apos;它&apos;, &apos;的&apos;, &apos;光芒&apos;, &apos;。&apos;, &apos;就&apos;, &apos;在&apos;, &apos;那&apos;, &apos;次&apos;, &apos;漫长&apos;, &apos;的&apos;, &apos;日落&apos;, &apos;中&apos;, &apos;，&apos;, &apos;我&apos;, &apos;出生&apos;, &apos;了&apos;]</code></pre><p>5、文本文件分词</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#pkuseg.test('流浪地球.txt', 'output.txt', nthread=20)</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>total_time:    17.295</code></pre><p>6、导入数据，清洗数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pkuseg</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'流浪地球.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    txt = f.read()</span><br><span class="line">    f.close()</span><br><span class="line"><span class="comment">#print(txt)</span></span><br><span class="line">data = txt.replace(<span class="string">'\t'</span>,<span class="string">''</span>).replace(<span class="string">'\n'</span>,<span class="string">''</span>).replace(<span class="string">' '</span>,<span class="string">''</span>)</span><br><span class="line">data=re.sub(<span class="string">"[A-Za-z0-9\[\`\~\!\@\#\$\^\&amp;\*\(\)\=\|\&#123;\&#125;\'\:\;\'\,\[\]\.\&lt;\&gt;\/\?\~\。\@\#\\\&amp;\*\%\-]"</span>, <span class="string">""</span>,data)</span><br><span class="line">data=re.sub(<span class="string">"[\，\。\？\“\”\…\！\、\:]"</span>, <span class="string">""</span>,data)</span><br><span class="line"><span class="comment">#print(data)</span></span><br><span class="line">seg = pkuseg.pkuseg()</span><br><span class="line">text = seg.cut(data)</span><br><span class="line"><span class="comment">#print(text)</span></span><br><span class="line">text = <span class="string">" "</span>.join(text)</span><br><span class="line">print(text)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">刹车 时代 我 没 见 过 黑夜 我 没 见 过 星星 我 没 见 过 春天 秋天 和 冬天 我 出生 在 刹车 时代 结束 的 时候 那时 地球 刚刚 停止 转动 地球 自 转刹车 用 了 四十二年 比 联合政府 的 计划 长 了 三年 妈妈 给 我 讲 过 我们 全家 看 最后 一个 日落 的 情景 太阳 落 得 很 慢 仿佛 在 地平线 上 停住 了 用 了 三 天 三 夜 才 落 下去 当然 以后 没有 天 也 没有 夜 了 东半球 在 相当 长 的 一 段 时间 里 有 十几年 吧 将 处于 永远 的 黄昏 中 因为 太阳 在 地平线 下 并 没 落深 还 在 半边天 上映 出 它 的 光芒 就 在 那 次 漫长 的 日落 中 我 出生 了 黄昏 并 不 意味着 昏暗 地球 发动机 把 整个 北半球 照 得 通明 地球 发动机 安装 在 亚洲 和 美洲 大陆 上 因为 只有 这 两 个 大陆 完整 坚实 的 版块 结构 才能 承受 发动机 对 地球 巨大 的 推力 地球 发动机 共有 一万二千 台 分布 在 亚洲 和 美洲 大陆 的 各个 平原 上 从 我 住 的 地方 可以 看到 几百 台 发动机 喷 出 的 等离子体 光柱 你 想象 一个 巨大 的 宫殿 有 雅典 卫城 上 的 神殿 那么 大殿 中 有 无数 根 顶天立地 的 巨柱 每 根 柱子 像 一 根 巨大 的 日光 灯管 那样 发出 蓝 白色 的 强光 </span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
-
-<p>二、wordcloud模块的使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wordcloud</span><br><span class="line"><span class="keyword">import</span>  matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">font = <span class="string">'./simhei.ttf'</span><span class="comment">#字体文件</span></span><br><span class="line">wc=wordcloud.WordCloud(</span><br><span class="line">    scale=<span class="number">4</span>,</span><br><span class="line">    font_path=font,</span><br><span class="line">    <span class="comment">#ask=image,</span></span><br><span class="line">    <span class="comment">#topwords=sw,</span></span><br><span class="line">    background_color=<span class="string">'white'</span>,</span><br><span class="line">    max_words = <span class="number">60</span>,</span><br><span class="line">    max_font_size = <span class="number">60</span>,</span><br><span class="line">    random_state=<span class="number">20</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">wc.generate(text)<span class="comment">#文本来生成</span></span><br><span class="line">plt.imshow(wc)</span><br><span class="line">plt.axis(<span class="string">"off"</span>)</span><br><span class="line">plt.show() </span><br><span class="line">wc.to_file(<span class="string">"wordcloud.png"</span>)   <span class="comment">#写出（生成词云）</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;wordcloud.wordcloud.WordCloud at 0x20233707fd0&gt;</code></pre><p><img src="/images/output.png" alt="output"></p>
-
+<pre><code>[&apos;我&apos;, &apos;爱&apos;, &apos;北京&apos;, &apos;天安门&apos;]</code></pre>
+        
+          <a class="article-more-a" href="/2019/09/12/pkuseg/#more">more >></a>
+        
       
 
       
@@ -247,19 +243,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2019/08/25/hello-world/#more">more >></a>
+        
       
 
       
