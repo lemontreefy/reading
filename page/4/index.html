@@ -150,6 +150,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-how-to-choose-the-best-suture-material" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/09/how-to-choose-the-best-suture-material/">how_to_choose_the_best_suture_material</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/09/how-to-choose-the-best-suture-material/" class="archive-article-date">
+  	<time datetime="2021-09-09T09:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、Physical-characteristics-of-suture-material"><a href="#1、Physical-characteristics-of-suture-material" class="headerlink" title="1、Physical characteristics of suture material"></a>1、Physical characteristics of suture material</h3><ul>
+<li><p><strong>Braided(or Multifilament)：编织/多股</strong></p>
+<ul>
+<li>multiple strands braided or twisted together</li>
+<li>tensile strength,pliability,and flexibility</li>
+<li>great handling characteristics</li>
+<li>knot security<ul>
+<li>surgeons use fewer knots with braided than monofilament</li>
+</ul>
+</li>
+<li>less memory<ul>
+<li>less tendency to kink or curl</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Monofilament：单股</strong></p>
+<ul>
+<li>single strand</li>
+<li>less resistence passing through tissue</li>
+<li>ties down easily,but crushing or crimping may weaken</li>
+</ul>
+</li>
+<li><p><strong>Absorable sutures</strong></p>
+<ul>
+<li>natural:breaks down through an enzymatic process</li>
+<li>synthetic:breaks down via hydrolysis</li>
+</ul>
+</li>
+</ul>
+<hr>
+        
+          <a class="article-more-a" href="/2021/09/09/how-to-choose-the-best-suture-material/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">suture</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">material</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/09/how-to-choose-the-best-suture-material/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Duke-suture-skill-course" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -906,79 +1016,6 @@
 
 
   
-    <article id="post-pkuseg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/12/pkuseg/">使用pkuseg和wordcloud进行分词生成词云</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/12/pkuseg/" class="archive-article-date">
-  	<time datetime="2019-09-12T06:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、pkuseg中文分词工具的使用</p>
-<p>1、安装pkuseg模块</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pkuseg</span><br></pre></td></tr></table></figure>
-
-<p>2、使用默认配置进行分词</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pkuseg</span><br><span class="line"></span><br><span class="line">seg = pkuseg.pkuseg()           <span class="comment"># 以默认配置加载模型</span></span><br><span class="line">text = seg.cut(<span class="string">&#x27;我爱北京天安门&#x27;</span>)  <span class="comment"># 进行分词</span></span><br><span class="line"><span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[&#39;我&#39;, &#39;爱&#39;, &#39;北京&#39;, &#39;天安门&#39;]
-</code></pre>
-        
-          <a class="article-more-a" href="/2019/09/12/pkuseg/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/12/pkuseg/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
@@ -1153,6 +1190,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">细节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前牙外伤</a>
               </li>
              
               <li class="article-tag-list-item">
